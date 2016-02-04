@@ -23,7 +23,7 @@ if (typeof wordlist === 'undefined') {
         var wordCount = parseInt(document.getElementById("wordCount").value, 10);
         if (isNaN(wordCount)) {
             alert("Invalid word count");
-            return;
+            return false;
         }
 
         var password = "";
@@ -54,9 +54,10 @@ if (typeof wordlist === 'undefined') {
         // show the password to the user
         document.getElementById("output").innerHTML = password;
 
+        // this is a form, but we don't want to actually submit
         return false;
     };
 
-    // now that all the code has run without crashing, make the Go! button clickable
+    // now that all the code has run without crashing, make the go button clickable
     goButton.disabled = false;
 }

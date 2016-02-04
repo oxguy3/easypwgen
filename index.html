@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>easypwgen</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1>easypwgen</h1>
+    <h3>A simple, secure password generator (made by Hayden Schiff)</h3>
+
+    <p>This is an extremely simple password generator inspired the comic <a href="https://xkcd.com/936/">xkcd #936: Password Strength</a>. It will generate a random password for you by selecting a few random words from the dictionary. This page is deliberately barebones and simple, so that any developer can easily peek at the source code and verify that this website is not doing anything evil.</p>
+    <p>To generate a random password, just click the "Go!" button below. If you don't like the password you get, just keep clicking until you find one that you like.</p>
+
+    <p>
+        <label for="wordCount">Number of words:&nbsp;</label>
+        <input id="wordCount" name="wordCount" type="number" min="1" max="50" value="4" />
+    </p>
+    <p>
+        <button id="go" name="go" disabled>Go!</button>
+        <span id="notLoaded">Loading...</span>
+    </p>
+    <div id="output">
+        <i>Your password will appear here once you click the "Go!" button.</i>
+    </div>
+
+    <script src="wordlist.en.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

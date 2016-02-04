@@ -18,4 +18,5 @@ h2, h3 {
 #output {
     border: 1px #444 solid;
     padding: 8px;
+    word-wrap: break-word;
 }

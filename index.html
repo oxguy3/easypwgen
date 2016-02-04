@@ -14,21 +14,23 @@
 
     <p>To generate a random password, just click the "Go!" button below. If you don't like the password you get, just keep clicking until you find one that you like.</p>
 
-    <p>
-        <label for="wordCount">Number of words:&nbsp;</label>
-        <input id="wordCount" name="wordCount" type="number" min="1" max="1000" value="4" />
-    </p>
-    <p>
-        <label for="titlecase">Capitalize first letter of each word?&nbsp;</label>
-        <input id="titlecase" name="titlecase" type="checkbox" checked />
-    </p>
-    <p>
-        <label for="dashSeparated">Separate words with dashes?&nbsp;</label>
-        <input id="dashSeparated" name="dashSeparated" type="checkbox" />
-    </p>
-    <p>
-        <button id="go" disabled>Go!</button>
-    </p>
+    <form id="passgen">
+        <p>
+            <label for="wordCount">Number of words:&nbsp;</label>
+            <input id="wordCount" name="wordCount" type="number" min="1" max="999" pattern="[0-9]?[0-9]?[1-9]" value="4" />
+        </p>
+        <p>
+            <label for="titlecase">Capitalize first letter of each word?&nbsp;</label>
+            <input id="titlecase" name="titlecase" type="checkbox" checked />
+        </p>
+        <p>
+            <label for="dashSeparated">Separate words with dashes?&nbsp;</label>
+            <input id="dashSeparated" name="dashSeparated" type="checkbox" />
+        </p>
+        <p>
+            <input id="go" type="submit" value="Go!" disabled />
+        </p>
+    </form>
     <div id="output">
         <i>Your password will appear here once you click the "Go!" button.</i>
     </div>

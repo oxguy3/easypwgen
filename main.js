@@ -17,7 +17,7 @@ if (typeof wordlist === 'undefined') {
     var dashSeparatedCheck = document.getElementById("dashSeparated");
 
     // code to run when go button is pressed
-    goButton.addEventListener("click", function(){
+    document.getElementById("passgen").onsubmit = function(){
 
         // get the word count from the input box
         var wordCount = parseInt(document.getElementById("wordCount").value, 10);
@@ -53,7 +53,9 @@ if (typeof wordlist === 'undefined') {
 
         // show the password to the user
         document.getElementById("output").innerHTML = password;
-    });
+
+        return false;
+    };
 
     // now that all the code has run without crashing, make the Go! button clickable
     goButton.disabled = false;

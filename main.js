@@ -13,6 +13,8 @@ if (typeof wordlist === 'undefined') {
     }
 
     var goButton = document.getElementById("go");
+    var titlecaseCheck = document.getElementById("titlecase");
+    var dashSeparatedCheck = document.getElementById("dashSeparated");
 
     // code to run when go button is pressed
     goButton.addEventListener("click", function(){
@@ -33,7 +35,20 @@ if (typeof wordlist === 'undefined') {
         // use random number array to select words from the wordlist
         for (var i = 0; i < randomNumbers.length; i++) {
             var index = randomNumbers[i] % wordlist.length;
-            password += capitalizeFirstLetter(wordlist[index]);
+            var word = wordlist[index];
+
+            // convert to titlecase if the appropriate box is checked
+            if (titlecaseCheck.checked) {
+                word = capitalizeFirstLetter(word);
+            }
+
+            password += word;
+
+            // add dashes between words if the appropriate box is checked
+            if (dashSeparatedCheck.checked && i+1 < randomNumbers.length) {
+                password += "-";
+            }
+
         }
 
         // show the password to the user

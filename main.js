@@ -3,14 +3,9 @@ if (typeof wordlist === 'undefined') {
     alert("FAILURE: Unable to load wordlist.");
 
 } else if (typeof window.crypto === 'undefined') {
-    alert("FAILURE: Your browser doesn't have a secure random number generator.")
+    alert("FAILURE: Your browser doesn't support the Web Crypto standard.")
 
 } else {
-
-    // makes the first letter of a string uppercase, and the rest lowercase
-    function capitalizeFirstLetter(text) {
-        return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
-    }
 
     var goButton = document.getElementById("go");
     var titlecaseCheck = document.getElementById("titlecase");
@@ -39,7 +34,7 @@ if (typeof wordlist === 'undefined') {
 
             // convert to titlecase if the appropriate box is checked
             if (titlecaseCheck.checked) {
-                word = capitalizeFirstLetter(word);
+                word = word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
             }
 
             password += word;
@@ -58,6 +53,7 @@ if (typeof wordlist === 'undefined') {
         return false;
     };
 
-    // now that all the code has run without crashing, make the go button clickable
+    // JS has loaded, so we can allow the user to click the Go button now
     goButton.disabled = false;
 }
+
